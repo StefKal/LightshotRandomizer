@@ -1,6 +1,8 @@
 import string
 import random
 import os
+import sys
+from sys import platform
 from selenium import webdriver
 import tkinter as tk
 from tkinter import ttk
@@ -8,9 +10,21 @@ from tkinter import ttk
 
 class myTest:
     def __init__(self):
-        self.driver = webdriver.Chrome(executable_path=r'C:/Users/stefa/Downloads/chromedriver_win32/chromedriver.exe')
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--incognito")
+
+        # if user is on Windows
+        if platform == "win32":
+            self.driver = webdriver.Chrome(executable_path=r'C:/Users/stefa/Downloads/chromedriver_win32/chromedriver.exe')
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("--incognito")
+
+        # if user is on Linux
+        elif platform == "linux" or platform == "linux2":
+            self.driver = webdriver.Firefox()
+
+        # if user is on Mac
+        else:
+            print("Get a PC you pleb")
+            sys.exit()
 
     def refresh(self):
         random_string = get_random_string(6)
