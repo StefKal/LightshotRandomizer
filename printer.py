@@ -20,6 +20,8 @@ class myTest:
         # if user is on Linux
         elif platform == "linux" or platform == "linux2":
             self.driver = webdriver.Firefox()
+            firefox_options = webdriver.FirefoxOptions()
+            firefox_options.add_argument("-private")
 
         # if user is on Mac
         else:
