@@ -13,7 +13,7 @@ class myTest:
 
         # if user is on Windows
         if platform == "win32":
-            self.driver = webdriver.Chrome(executable_path=r'C:/Users/stefa/Downloads/chromedriver_win32/chromedriver.exe')
+            self.driver = webdriver.Chrome()
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument("--incognito")
 
