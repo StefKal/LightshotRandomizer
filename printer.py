@@ -2,9 +2,9 @@ import string
 import random
 import os
 import sys
+import tkinter as tk
 from sys import platform
 from selenium import webdriver
-import tkinter as tk
 from tkinter import ttk
 
 
