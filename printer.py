@@ -1,16 +1,33 @@
+#!/usr/bin/env python3
 import string
 import random
 import os
-from selenium import webdriver
+import sys
 import tkinter as tk
+from sys import platform
+from selenium import webdriver
 from tkinter import ttk
 
 
 class myTest:
     def __init__(self):
-        self.driver = webdriver.Chrome(executable_path=r'C:/Users/stefa/Downloads/chromedriver_win32/chromedriver.exe')
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--incognito")
+
+        # if user is on Windows
+        if platform == "win32":
+            self.driver = webdriver.Chrome()
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("--incognito")
+
+        # if user is on Linux
+        elif platform == "linux" or platform == "linux2":
+            self.driver = webdriver.Firefox()
+            firefox_options = webdriver.FirefoxOptions()
+            firefox_options.add_argument("-private")
+
+        # if user is on Mac
+        else:
+            print("Get a PC you pleb")
+            sys.exit()
 
     def refresh(self):
         random_string = get_random_string(6)
