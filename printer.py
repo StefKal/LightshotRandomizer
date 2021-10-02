@@ -22,7 +22,7 @@ class BrowserDriver:
         # if user is on Linux
         elif platform == "linux" or platform == "linux2":
             options = webdriver.FirefoxOptions()
-            options.add_argument("headless")
+            options.headless = True
             self.driver = webdriver.Firefox(options=options)
 
         # if user is on Mac
